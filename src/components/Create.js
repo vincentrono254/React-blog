@@ -1,76 +1,72 @@
+// const About = () => {
+//   return (
+//     <div>
+//       <h1>About Us</h1>
+//       <p>
+//         We are a team of developers who love building cool things on the web.
+//         Contact us at{" "}
+//         <a href="mailto:contact@example.com">contact@example.com</a>.
+//       </p>
+//     </div>
+//   );
+// };
+
+// export default About;
 import { useState } from "react";
+import { Form } from "react-bootstrap";
 
-const UserInput = () => {
+const Create = () => {
   const [data, setData] = useState({
-    firstname: "",
-    lastname: "",
-    age: "",
-    course: "",
+    title: "",
+    author: "",
+    body: "",
   });
-
-  const handleInput = (e) => {
-    const { name, value } = e.target;
+  const handleOnchange = (event) => {
+    const { name, value } = event.target;
     setData((prev) => {
       return { ...prev, [name]: value };
     });
   };
-
-  const handleSubmit = (e) => {
-    // submit handle
-  };
-
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label>Firstname</label>
-        <br />
-        <input
+      <Form.Group className="mb-3" controlId="exampleForm.controlInput">
+        <Form.Label>Title</Form.Label>
+        <Form.Control
+          name="title"
           type="text"
-          name="firstname"
-          onChange={handleInput}
-          placeholder="enter your firstname"
-        ></input>
-        <br />
+          Placeholder="Sample Title"
+          onChange={handleOnchange}
+          value={data.title}
+        ></Form.Control>
+      </Form.Group>
 
-        <label>Lastname</label>
-        <br />
-        <input
+      <Form.Group className="mb-3" controlId="exampleForm.controlInput">
+        <Form.Label>Author</Form.Label>
+        <Form.Control
+          name="author"
           type="text"
-          name="lastname"
-          onChange={handleInput}
-          placeholder="enter your lastname"
-        ></input>
-        <br />
+          Placeholder="Sample Author"
+          onChange={handleOnchange}
+          value={data.author}
+        ></Form.Control>
+      </Form.Group>
 
-        <label>Age</label>
-        <br />
-        <input
-          type="text"
-          name="age"
-          onChange={handleInput}
-          placeholder="enter your age"
-        ></input>
-        <br />
-
-        <label>Course</label>
-        <br />
-        <input
-          type="text"
-          name="course"
-          onChange={handleInput}
-          placeholder="enter your course"
-        ></input>
-        <br />
-
-        <button type="submit">Submit</button>
-      </form>
-
-      <p>{data.firstname}</p>
-      <p>{data.lastname}</p>
-      <p>{data.age}</p>
-      <p>{data.course}</p>
+      <Form.Group className="mb-3" controlId="exampleForm.controlTextarea">
+        <Form.Label>Body</Form.Label>
+        <Form.Control
+          name="body"
+          as="textarea"
+          Placeholder="Sample Body"
+          rows={3}
+          onChange={handleOnchange}
+          value={data.body}
+        ></Form.Control>
+      </Form.Group>
+      <p>{data.title}</p>
+      <p>{data.author}</p>
+      <p>{data.body}</p>
     </div>
   );
 };
 
-export default UserInput;
+export default Create;
