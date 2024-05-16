@@ -24,6 +24,7 @@ const Create = () => {
     author: "",
     body: "",
   });
+   const [errors, setErrors] = useState({});
   const handleOnchange = (event) => {
     const { name, value } = event.target;
     setData((prev) => {
@@ -32,32 +33,41 @@ const Create = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    //check if all fields are filled
-    if (!data.title || !data.author || !data.body) {
-      toast.error("all fields must be filled", {
-        position: toast.POSITION.TOP_RiGHT,
+    const { title, author, body } = data;
+    const errors = {};
+   
+if (!title) errors.title = "Title is required";
+    if (!author) errors.author = "Author is required";
+    if (!body) errors.body = "Body is required";
+
+    if (Object.keys(errors).length > 0) {
+      setErrors(errors);
+      toast.error("Please fill in all required fields", {
+        position: toast.POSITION.TOP_RIGHT,
         autoClose: 3000,
       });
-    }
-    axios
-      .post("http://localhost:4000/blogs", data)
-      .then((res) => {
-        toast.success("new blog added successfully", {
-          position: toast.POSITION.TOP_RiGHT,
-          autoClose: 3000,
-        });
-      })
-      .catch((error) => {
-        console.error("Error adding blog:", error);
-        toast.error(
-          "An error occurred while adding the blog. Please try again later.",
-          {
-            position: toast.POSITION.TOP_RIGHT,
+   }else {
+      axios
+        .post("http://localhost:4000/blogs", data)
+        .then((res) => {
+          toast.success("new blog added successfully", {
+            position: toast.POSITION.TOP_RiGHT,
             autoClose: 3000,
-          }
-        );
-      });
-  };
+          });
+        })
+        .catch((error) => {
+          console.error("Error adding blog:", error);
+          toast.error(
+            "An error occurred while adding the blog. Please try again later.",
+            {
+              position: toast.POSITION.TOP_RIGHT,
+              autoClose: 3000,
+            }
+          );
+        });
+    }
+  }
+    
   return (
     <div>
       <Form onSubmit={handleSubmit}>
