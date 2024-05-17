@@ -1,17 +1,3 @@
-// const About = () => {
-//   return (
-//     <div>
-//       <h1>About Us</h1>
-//       <p>
-//         We are a team of developers who love building cool things on the web.
-//         Contact us at{" "}
-//         <a href="mailto:contact@example.com">contact@example.com</a>.
-//       </p>
-//     </div>
-//   );
-// };
-
-// export default About;
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import axios from "axios";
@@ -24,7 +10,7 @@ const Create = () => {
     author: "",
     body: "",
   });
-   const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({});
   const handleOnchange = (event) => {
     const { name, value } = event.target;
     setData((prev) => {
@@ -35,8 +21,8 @@ const Create = () => {
     event.preventDefault();
     const { title, author, body } = data;
     const errors = {};
-   
-if (!title) errors.title = "Title is required";
+
+    if (!title) errors.title = "Title is required";
     if (!author) errors.author = "Author is required";
     if (!body) errors.body = "Body is required";
 
@@ -46,7 +32,7 @@ if (!title) errors.title = "Title is required";
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 3000,
       });
-   }else {
+    } else {
       axios
         .post("http://localhost:4000/blogs", data)
         .then((res) => {
@@ -66,8 +52,8 @@ if (!title) errors.title = "Title is required";
           );
         });
     }
-  }
-    
+  };
+
   return (
     <div>
       <Form onSubmit={handleSubmit}>
