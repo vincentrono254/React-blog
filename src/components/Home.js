@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
+import BlogList from "./BlogList";
+import UseFetch from "./UseFetch";
 
 const Home = () => {
+  const { data: blogs } = UseFetch("http://localhost:4000/blogs");
+
   return (
-    <div>
-      <h1>Welcome to the Homepage!</h1>
-      <Link to="/create" className="button">
-        Create a new blog post
-      </Link>
+    <div className="home">
+      {blogs && <BlogList blogs={blogs} title="All blogs" />}
     </div>
   );
 };

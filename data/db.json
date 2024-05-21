@@ -1,36 +1,6 @@
 {
   "blogs": [
     {
-      "id": "2f40",
-      "title": "sfhdhjf",
-      "author": "dfdhhf",
-      "body": "vbcv cv c"
-    },
-    {
-      "id": "01b0",
-      "title": "sfhdhjf",
-      "author": "dfdhhf",
-      "body": "vbcv cv c"
-    },
-    {
-      "id": "078f",
-      "title": "sfhdhjf",
-      "author": "dfdhhf",
-      "body": "vbcv cv c"
-    },
-    {
-      "id": "cfc7",
-      "title": "gfhhg",
-      "author": "Sample Authorg",
-      "body": "juryhdgx"
-    },
-    {
-      "id": "0bc7",
-      "title": "rrewq",
-      "author": "Sample Authorg",
-      "body": "juryhdgx"
-    },
-    {
       "id": "a907",
       "title": "ten ten",
       "author": "kiprotich",
@@ -137,6 +107,24 @@
       "title": "Software",
       "author": "Edwin ",
       "body": "A lecture at IST , his speciality is React and javasctript, he is has experience of over 10 years in the field."
+    },
+    {
+      "id": "54aa",
+      "title": "React",
+      "author": "James",
+      "body": "I love react"
+    },
+    {
+      "id": "e7c5",
+      "title": "gh",
+      "author": "ggggg",
+      "body": "jjj"
+    },
+    {
+      "id": "ad35",
+      "title": "denno",
+      "author": "ogunyo",
+      "body": "always ahead"
     }
   ]
 }
